@@ -1,0 +1,25 @@
+@charset "utf-8";
+@use "sass:list";
+@use "../config" as *;
+
+/// `text-size-adjust` mixin
+///
+/// @param {Number (unit) | String} $value [auto] - The value of the CSS property
+///
+/// @requires {Variable} $supported-browsers
+/// @requires {Variable} $firefox-android
+/// @requires {Variable} $safari-ios
+///
+/// @example scss
+/// .element {
+///   @include css-text-size-adjust(100%);
+/// }
+@mixin css-text-size-adjust($value: auto) {
+  @if $safari-ios <= 26.3 {
+    -webkit-text-size-adjust: $value; // Safari iOS 26.3-
+  }
+  @if list.index($supported-browsers, firefox-android) and $firefox-android <= 147 {
+    -moz-text-size-adjust: $value; // Firefox Android 147-
+  }
+  text-size-adjust: $value;
+}

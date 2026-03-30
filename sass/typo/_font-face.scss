@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+/** @section Font faces */
+@font-face {
+  font-family: "Kumbh Sans";
+  src: url("fonts/KumbhSans-VariableFont_YOPQ,wght.woff2") format("woff2") tech(variations);
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}

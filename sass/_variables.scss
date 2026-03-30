@@ -1,0 +1,22 @@
+@charset "utf-8";
+@use "./base/functions" as *;
+@use "./base/mixins" as *;
+
+// Variables
+:root {
+  // Breakpoints for JS/TS
+  @each $name, $value in $media-queries-breakpoints {
+    --breakpoint-#{$name}: #{$value};
+  }
+
+  // Fonts
+  --font: "Kumbh Sans", sans-serif;
+
+  // Colours
+
+  // Boxes, margins, paddings, gaps and shadows
+
+  // Transitions
+
+  // Values reassigned based on media queries
+}

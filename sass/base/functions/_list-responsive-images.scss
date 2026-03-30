@@ -1,0 +1,72 @@
+@charset "utf-8";
+@use "sass:list";
+@use "sass:meta";
+@use "sass:string";
+
+/// Adds a suffix to the file name
+///
+/// @access private
+/// @param {String} $filename - The filename
+/// @param {String} $suffix - The suffix to add
+/// @param {String} $extension - The file extension
+/// @returns {String | false} The filename with the suffix inserted or false if the extension is not found
+@function _add-suffix-filename($filename, $suffix, $extension) {
+  $index: string.index($filename, $extension);
+  @if meta.type-of($index) != "number" {
+    @warn "The extension `#{$extension}` could not be found";
+    @return false;
+  }
+  @return string.insert($filename, $suffix, $index);
+}
+
+/// Lists responsive images, based on the file name, the suffix to use and the maximum high pixel density
+///
+/// @param {String} $filename - The filename
+/// @param {String} $extension [".png"] - The file extension
+/// @param {String} $suffix-character ["@"] - The character introducing the suffix
+/// @param {Boolean} $is-image-base-suffixed [false] - Whether the filename for the SD image is also suffixed or not
+/// @param {Number} $max-high-pixel-density [4] - The maximum high pixel density to take into account
+/// @returns {List} The list of images to serve as an argument to `image-set()`
+///
+/// @example scss
+/// .element {
+///   background-image: image-set(list-responsive-images("images/my-image.png"));
+/// }
+/// .element {
+///   background-image: image-set(list-responsive-images("images/my-image.png", $is-image-base-suffixed: true));
+/// }
+/// .element {
+///   background-image: image-set(list-responsive-images("images/my-image.webp", $extension: ".webp", $max-high-pixel-density: 2));
+/// }
+/// .element {
+///   background-image: image-set(list-responsive-images("images/my-image.webp", $extension: ".webp", $suffix-character: "-"));
+/// }
+///
+@function list-responsive-images($filename, $extension: ".png", $suffix-character: "@", $is-image-base-suffixed: false, $max-high-pixel-density: 4) {
+  $image-set: ();
+  @for $i from 1 through $max-high-pixel-density {
+    $suffix: "#{$suffix-character}#{$i}x";
+    $suffixed-filename: null;
+
+    // For high pixel density of one
+    @if $i == 1 {
+      // If the filename must be suffixed, may it be suffixed
+      @if $is-image-base-suffixed {
+        $suffixed-filename: _add-suffix-filename($filename, $suffix, $extension);
+      }
+
+      // Otherwise, keep it as is
+      @else {
+        $suffixed-filename: $filename;
+      }
+    }
+
+    // For higher pixel densities
+    @else {
+      $suffixed-filename: _add-suffix-filename($filename, $suffix, $extension);
+    }
+    $image-set: list.append($image-set, "#{$suffixed-filename}" #{$i}x, comma);
+  }
+
+  @return $image-set;
+}

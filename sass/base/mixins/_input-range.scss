@@ -1,0 +1,74 @@
+@charset "utf-8";
+
+/// Input range block size mixin
+///
+/// @param {Length} $value - The block size value for the input range (it can be a custom property)
+/// @example scss
+/// input[type="range"] {
+///   @include css-input-range-block-size(10px);
+/// }
+@mixin css-input-range-block-size($value) {
+  &::-moz-range-track,
+  &::-moz-range-progress {
+    block-size: $value;
+  }
+  &::-webkit-slider-runnable-track {
+    block-size: $value;
+  }
+}
+
+/// Input range track background mixin
+///
+/// @param {Color} $track - The background colour for the track (it can be a custom property)
+/// @param {Color} $progress [null] - The background colour for the part of the track showing the progress (it can be a custom property, set `null` for no progress)
+/// @param {Percentage} $offset [0%] - The offset for the progress
+/// @example scss
+/// input[type="range"] {
+///   @include css-input-range-track-background(grey, orange);
+/// }
+@mixin css-input-range-track-background($track, $progress: null, $offset: 0%) {
+  @if $progress != null {
+    &::-moz-range-track {
+      background: $track;
+    }
+    &::-moz-range-progress {
+      background: $progress;
+    }
+    &::-webkit-slider-runnable-track {
+      background: linear-gradient(to right, $track $offset, $progress $offset);
+    }
+  }
+  @else {
+    &::-moz-range-track {
+      background: $track;
+    }
+    &::-webkit-slider-runnable-track {
+      background: $track;
+    }
+  }
+}
+
+/// Input range thumb mixin
+///
+/// @param {Length} $track-block-size - The block size of the track (it can be a custom property)
+/// @param {Length} $thumb-size - The size of the thumb (it can be a custom property)
+/// @example scss
+/// $thumb-size: 20px;
+/// input[type="range"] {
+///   @include css-input-range-thumb(10px, $thumb-size); {
+///     background: red;
+///     width: $thumb-size;
+///     height: $thumb-size;
+///     border-radius: 50%;
+///   }
+/// }
+@mixin css-input-range-thumb($track-block-size, $thumb-size) {
+  &::-moz-range-thumb {
+    @content;
+  }
+  &::-webkit-slider-thumb {
+    @content;
+    appearance: none;
+    margin-block-start: calc((#{$track-block-size} - #{$thumb-size}) / 2);
+  }
+}

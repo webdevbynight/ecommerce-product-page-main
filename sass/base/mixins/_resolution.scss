@@ -1,0 +1,109 @@
+@charset "utf-8";
+@use "sass:list";
+@use "sass:math";
+@use "../config" as *;
+
+/// Converts dppx into dpi
+///
+/// @access private
+/// @param {Number} $dppx - The value to convert (it is unitless)
+/// @returns {Number} The value converted into dpi
+@function _dppx2dpi($dppx) {
+  @return $dppx * 96dpi;
+}
+
+/// `resolution` mixin
+///
+/// @param {Number} $value [1] - The value of the resolution in x or dppx (without the unit)
+///
+/// @requires {Variable} $supported-browsers
+/// @requires {Variable} $safari
+/// @requires {Variable} $safari-ios
+///
+/// @example scss
+/// .element {
+///   @include css-resolution(2) {
+///     background-image: url("2x-image.png");
+///   }
+/// }
+@mixin css-resolution($value: 1) {
+  @if $safari <= 15.6 or $safari-ios <= 15.8 {
+    @media (-webkit-device-pixel-ratio: #{$value}) {
+      @content; // Safari 15.6-, Safari iOS 15.8-
+    }
+  }
+  @if list.index($supported-browsers, opera-mini) {
+    @media (resolution: #{_dppx2dpi($value)}) {
+      @content; // dpi unit for Opera Mini
+    }
+  }
+  @else {
+    @media (resolution: #{$value}dppx) {
+      @content;
+    }
+  }
+}
+
+/// `min-resolution` mixin
+///
+/// @param {Number} $value [1] - The value of the minimal resolution in x or dppx (without the unit)
+///
+/// @requires {Variable} $supported-browsers
+/// @requires {Variable} $safari
+/// @requires {Variable} $safari-ios
+///
+/// @example scss
+/// .element {
+///   @include css-min-resolution(2) {
+///     background-image: url("hd-image.png");
+///   }
+/// }
+@mixin css-min-resolution($value: 1) {
+  @if $safari <= 15.6 or $safari-ios <= 15.8 {
+    @media (-webkit-min-device-pixel-ratio: #{$value}) {
+      @content; // Safari 15.6-, Safari iOS 15.8-
+    }
+  }
+  @if list.index($supported-browsers, opera-mini) {
+    @media (min-resolution: #{_dppx2dpi($value)}) {
+      @content; // dpi unit for Opera Mini
+    }
+  }
+  @else {
+    @media (min-resolution: #{$value}dppx) {
+      @content;
+    }
+  }
+}
+
+/// `max-resolution` mixin
+///
+/// @param {Number} $value [1] - The value of the maximal resolution in x or dppx (without the unit)
+///
+/// @requires {Variable} $supported-browsers
+/// @requires {Variable} $safari
+/// @requires {Variable} $safari-ios
+///
+/// @example scss
+/// .element {
+///   @include css-max-resolution(2) {
+///     background-image: url("sd-image.png");
+///   }
+/// }
+@mixin css-max-resolution($value: 1) {
+  @if $safari <= 15.6 or $safari-ios <= 15.8 {
+    @media (-webkit-max-device-pixel-ratio: #{$value}) {
+      @content; // Safari 15.6-, Safari iOS 15.8-
+    }
+  }
+  @if list.index($supported-browsers, opera-mini) {
+    @media (max-resolution: #{_dppx2dpi($value)}) {
+      @content; // dpi unit for Opera Mini
+    }
+  }
+  @else {
+    @media (max-resolution: #{$value}dppx) {
+      @content;
+    }
+  }
+}

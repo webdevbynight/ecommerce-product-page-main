@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+/// Progress uncompleted mixin
+///
+/// @example scss
+/// .element {
+///   @include css-progress-uncompleted {
+///     background-color: grey;
+///   }
+/// }
+@mixin css-progress-uncompleted {
+  @content;
+  &::-webkit-progress-bar {
+    @content;
+  }
+}
+
+/// Progress completed mixin
+///
+/// @example scss
+/// .element {
+///   @include css-progress-completed {
+///     background-color: green;
+///   }
+/// }
+@mixin css-progress-completed {
+  &::-moz-progress-bar {
+    @content;
+  }
+  &::-webkit-progress-value {
+    @content;
+  }
+}

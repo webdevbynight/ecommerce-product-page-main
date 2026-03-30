@@ -1,0 +1,20 @@
+@charset "utf-8";
+@use "../config" as *;
+
+/// `hyphens` mixin
+///
+/// @param {String} $value [manual] - The value of the CSS property
+///
+/// @requires $safari
+/// @requires $safari-ios
+///
+/// @example scss
+/// .element {
+///   @include css-hyphens(auto);
+/// }
+@mixin css-hyphens($value: manual) {
+  @if $safari <= 16.6 or $safari-ios <= 16.7 {
+    -webkit-hyphens: $value; // Safari 16.6-, Safari iOS 16.7-
+  }
+  hyphens: $value;
+}
