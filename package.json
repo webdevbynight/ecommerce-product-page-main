@@ -14,7 +14,7 @@
     "validate-schema": "schemata-validator --exclude template mock-ups"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.9",
+    "@biomejs/biome": "2.4.10",
     "browser-sync": "3.0.4",
     "markup-validator": "0.2.1",
     "schemata-validator": "0.3.1",
