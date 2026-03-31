@@ -9,19 +9,43 @@
   grid-template-columns: var(--skip-links-inline-size) repeat(2, 1fr);
   align-items: center;
   margin-block-end: var(--header-margin);
+  position: relative;
   p {
     line-height: 1;
   }
-  svg, img {
+  svg, img, button {
     display: block;
+  }
+  button {
+    border: none;
+  }
+  .skip-links, .close-menu, .cart-profile {
+    path {
+      fill-rule: evenodd;
+    }
+  }
+  .skip-links, .close-menu {
+    path {
+      fill: var(--quinary-background);
+    }
   }
   .skip-links {
     align-self: end;
     order: -1;
     margin-block: var(--skip-links-margin);
-    path {
-      fill: var(--quinary-background);
-      fill-rule: evenodd;
+  }
+  .close-menu {
+    position: fixed;
+    inset-block-start: var(--menu-padding-block);
+    inset-inline-start: var(--menu-padding-inline);
+    z-index: 3;
+    transition: display 25ms ease-in;
+    transition-behavior: allow-discrete;
+    &.active {
+      transition-duration: 200ms;
+    }
+    &:not(.active) {
+      display: none;
     }
   }
   .cart-profile {
@@ -33,7 +57,6 @@
   .cart {
     path {
       fill: var(--quinary-background);
-      fill-rule: evenodd;
       clip-rule: evenodd;
       transition: fill 250ms ease-in;
     }

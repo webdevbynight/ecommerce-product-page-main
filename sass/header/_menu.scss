@@ -19,6 +19,34 @@
     color: var(--secondary);
     text-decoration: none;
   }
+  @include css-media-queries($below-breakpoint: visible-menu) {
+    &:has(+ .close-menu) {
+      display: grid;
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      transition: background 125ms ease-in;
+      ul {
+        background: var(--secondary-background);
+        inline-size: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+        opacity: 0;
+        transition: inline-size var(--menu-size-transition) ease-in, padding var(--menu-inner-transition) var(--menu-transition-delay) ease-in, opacity var(--menu-inner-transition) var(--menu-transition-delay) ease-in;
+      }
+      li:first-child {
+        margin-block-start: var(--menu-ul-margin-block);
+      }
+      &.active {
+        background: var(--senary-background);
+        ul {
+          inline-size: clamp(var(--menu-ul-min-size), var(--menu-ul-ideal-size), var(--menu-ul-max-size));
+          padding: var(--menu-padding-block) var(--menu-padding-inline);
+          opacity: 1;
+        }
+      }
+    }
+  }
   @include css-media-queries($from-breakpoint: visible-menu) {
     font-weight: normal;
     order: initial;
