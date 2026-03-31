@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+@use "../base/mixins" as *;
+
+/** @section General layout */
+body {
+  margin: var(--outer-margin-block-start) var(--outer-margin-inline) var(--outer-margin-block-end);
+  @include css-media-queries($from-breakpoint: visible-menu) {
+    inline-size: var(--outer-inline-size);
+    margin-inline: auto;
+  }
+}

@@ -10,7 +10,8 @@
 
 @use "./base/mixins" with (
   $media-queries-breakpoints: (
-    // Add custom breakpoints here if default ones do not fit the project
+    two-column-product-form: 768,
+    visible-menu: 1440
   )
 );
 @use "./variables";
@@ -18,3 +19,6 @@
 @use "./base/print";
 @use "./typo/font-face";
 @use "./typo/typo";
+@use "./layout/layout";
+@use "./header/header";
+@use "./header/menu";
