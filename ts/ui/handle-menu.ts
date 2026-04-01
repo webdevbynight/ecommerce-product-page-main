@@ -33,6 +33,7 @@ export const handleMenu = (document: Document): void => {
           const svgWidth = 14;
           const svgHeight = 15;
           const svg = document.createElementNS(SVG_NAMESPACE_URI, "svg");
+          svg.setAttribute("xmlns", SVG_NAMESPACE_URI);
           svg.setAttribute("width", String(svgWidth));
           svg.setAttribute("height", String(svgHeight));
           svg.setAttribute("viewBox", `0 0 ${svgWidth} ${svgHeight}`);
