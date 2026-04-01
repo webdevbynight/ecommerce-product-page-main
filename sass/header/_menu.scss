@@ -38,7 +38,7 @@
         margin-block-start: var(--menu-ul-margin-block);
       }
       &.active {
-        background: var(--senary-background);
+        background: var(--septenary-background);
         ul {
           inline-size: clamp(var(--menu-ul-min-size), var(--menu-ul-ideal-size), var(--menu-ul-max-size));
           padding: var(--menu-padding-block) var(--menu-padding-inline);

@@ -97,7 +97,10 @@
         <h1 itemprop="name"><span class="brand">Sneaker Company</span> Fall Limited Edition Sneakers</h1>
         <p itemprop="description">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
         <p class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-          <ins><span itemprop="priceCurrency" content="USD">$</span><span itemprop="price">125.00</span> <span class="discount" itemscope itemtype="https://schema.org/Order"><span itemprop="discount">50%</span> <span class="sr-only">discount</span></span></ins>
+          <ins>
+            <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price">125.00</span>
+            <span class="discount" itemscope itemtype="https://schema.org/Order"><span itemprop="discount">50%</span> <span class="sr-only">discount</span></span>
+          </ins>
           <del>$250.00</del>
         </p>
         <form method="post" action="./">
@@ -106,12 +109,12 @@
             <input id="quantity" name="quantity" type="number" value="0" min="0">
             <button class="modify-quantity remove" type="button">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="4" role="img" aria-label="Remove one">
-                <path d="M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z" fill="#ff7e1b" fill-rule="nonzero"/>
+                <path d="M11.357 3.332A.641.641 0 0 0 12 2.69V.643A.641.641 0 0 0 11.357 0H.643A.641.641 0 0 0 0 .643v2.046c0 .357.287.643.643.643h10.714Z"/>
               </svg>
             </button>
             <button class="modify-quantity add" type="button">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" role="img" aria-label="Add one">
-                <path d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z" fill="#ff7e1b" fill-rule="nonzero"/>
+                <path d="M12 7.023V4.977a.641.641 0 0 0-.643-.643h-3.69V.643A.641.641 0 0 0 7.022 0H4.977a.641.641 0 0 0-.643.643v3.69H.643A.641.641 0 0 0 0 4.978v2.046c0 .356.287.643.643.643h3.69v3.691c0 .356.288.643.644.643h2.046a.641.641 0 0 0 .643-.643v-3.69h3.691A.641.641 0 0 0 12 7.022Z"/>
               </svg>
             </button>
           </p>
@@ -120,7 +123,7 @@
           </p>
         </form>
         <div class="gallery">
-          <ul>
+          <ul class="gallery-slides">
             <li>
               <img
                 src="./media/sneaker-company-fall-limited-edition-sneakers-1.webp"

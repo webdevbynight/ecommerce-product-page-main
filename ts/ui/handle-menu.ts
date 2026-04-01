@@ -6,7 +6,7 @@ import { SVG_NAMESPACE_URI } from "../constants.js";
 
 /**
  * Handles menu functionality, including opening and closing the menu and setting inert attribute.
- * @param document - The Document object to attach event listeners to.
+ * @param document - The `Document` object to attach event listeners to.
  */
 export const handleMenu = (document: Document): void => {
   for (const event of ["load", "resize"]) {

@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+@use "../base/mixins" as *;
+
+/** @section Product layout */
+.product {
+  display: grid;
+  .gallery {
+    order: -1;
+  }
+  @include css-media-queries($from-breakpoint: two-column-product-form) {
+    row-gap: var(--product-row-gap);
+  }
+  @include css-media-queries($from-breakpoint: visible-menu) {
+    grid-template: repeat(4, auto) / var(--product-first-column-size) 1fr;
+    column-gap: var(--product-column-gap);
+    inline-size: var(--product-inline-size);
+    padding-block: var(--product-padding-block);
+    margin-inline: auto;
+    .gallery {
+      grid-row: 1 / -1;
+      margin-block: calc(-1 * var(--product-padding-block));
+    }
+  }
+}

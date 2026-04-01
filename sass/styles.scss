@@ -19,6 +19,9 @@
 @use "./base/print";
 @use "./typo/font-face";
 @use "./typo/typo";
+@use "./utils/utils";
 @use "./layout/layout";
 @use "./header/header";
 @use "./header/menu";
+@use "./product/product-layout";
+@use "./product/product";

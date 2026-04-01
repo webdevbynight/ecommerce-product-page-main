@@ -1,0 +1,7 @@
+@charset "utf-8";
+
+/** @section Product mixins */
+@mixin discount-and-former-price-size {
+  font-size: var(--product-price-aside-text-size);
+  line-height: var(--product-price-aside-line-height);
+}

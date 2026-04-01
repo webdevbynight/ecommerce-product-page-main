@@ -8,5 +8,6 @@ body {
   @include css-media-queries($from-breakpoint: visible-menu) {
     inline-size: var(--outer-inline-size);
     margin-inline: auto;
+    overflow-x: hidden; // To prevent horizontal scrollbar when the gallery slides are loaded
   }
 }
