@@ -213,7 +213,7 @@
       row-gap: var(--product-gallery-lightbox-gap);
       grid-template-rows: min-content var(--product-gallery-lightbox-thumbnails-size);
       inline-size: var(--product-gallery-lightbox-inline-size);
-      min-block-size: 722px;
+      min-block-size: var(--product-gallery-lightbox-block-size);
       padding: var(--product-gallery-lightbox-padding-block) var(--product-gallery-lightbox-padding-inline) 0;
       border: none;
       p {

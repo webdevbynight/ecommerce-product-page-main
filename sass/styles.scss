@@ -10,8 +10,8 @@
 
 @use "./base/mixins" with (
   $media-queries-breakpoints: (
-    two-column-product-form: 768,
-    visible-menu: 1440
+    two-column-product-form: 616,
+    visible-menu: 1045
   )
 );
 @use "./variables";
