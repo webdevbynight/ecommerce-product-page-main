@@ -10,7 +10,7 @@
   }
 
   // Fonts
-  --font: "Kumbh Sans", sans-serif;
+  --font: "Kumbh Sans";
   --menu-text-size: #{px2rem(18)};
   --menu-line-height: calc(26 / 18);
   --product-title-text-size: #{px2rem(28)};
@@ -26,6 +26,8 @@
   --product-price-aside-line-height: calc(26 / 16);
   --product-form-text-size: #{px2rem(16)};
   --product-form-line-height: calc(26 / 16);
+  --cart-title-text-size: #{px2rem(16)};
+  --cart-title-line-height: calc(26 / 16);
 
   @include css-media-queries($from-breakpoint: two-column-product-form) {
     --product-title-text-size: #{px2rem(44)};
@@ -126,6 +128,22 @@
   --product-gallery-lightbox-button-size: #{px2rem(56)};
   --product-gallery-lightbox-button-inset-block: min(calc(100vi * 281 / 1440), #{px2rem(281)});
   --product-gallery-lightbox-thumbnails-size: min(calc(100vi * 88 / 1440), #{px2rem(88)});
+  --cart-inline-size: #{px2rem(336)};
+  --cart-block-size: #{px2rem(208)};
+  --cart-padding-block: #{px2rem(24)};
+  --cart-padding-inline: #{px2rem(12)};
+  --cart-border-radius: #{px2rem(10)};
+  --cart-shadow: 0 #{px2rem(20)} #{px2rem(50)} #{px2rem(-20)} rgb(from var(--senary-background) r g b / .1);
+  --cart-title-padding-block: #{px2rem(23)};
+  --cart-list-margin-inline: #{px2rem(13.5)};
+  --cart-list-gap: #{px2rem(24)};
+  --cart-list-item-gap: #{px2rem(16)};
+  --cart-image-size: #{px2rem(50)};
+  --cart-amount-margin-inline: #{px2rem(8)};
+  --cart-empty-margin-block: #{px2rem(72)};
+  --cart-button-padding: #{px2rem(16)};
+  --cart-button-margin-inline: #{px2rem(12)};
+  --cart-button-border-radius: #{px2rem(10)};
 
   @include css-media-queries($from-breakpoint: two-column-product-form) {
     --outer-margin-block-start: #{px2rem(28)};
