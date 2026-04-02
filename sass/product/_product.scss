@@ -144,7 +144,7 @@
     .gallery-slides {
       list-style: none;
       button {
-        display: none;
+        display: contents;
       }
     }
     .gallery-thumbnails {
@@ -205,6 +205,67 @@
       }
       .next {
         inset-inline-end: var(--product-gallery-button-inset);
+      }
+    }
+    .gallery-lightbox {
+      background: initial;
+      display: grid;
+      row-gap: var(--product-gallery-lightbox-gap);
+      grid-template-rows: min-content var(--product-gallery-lightbox-thumbnails-size);
+      inline-size: var(--product-gallery-lightbox-inline-size);
+      min-block-size: 722px;
+      padding: var(--product-gallery-lightbox-padding-block) var(--product-gallery-lightbox-padding-inline) 0;
+      border: none;
+      p {
+        display: contents;
+      }
+      button {
+        background: initial;
+      }
+      .gallery-slides-wrapper {
+        block-size: initial;
+        aspect-ratio: 1;
+      }
+      .gallery-thumbnails {
+        justify-content: center;
+        img {
+          max-width: var(--product-gallery-lightbox-thumbnails-size);
+        }
+      }
+      .slider-controls {
+        button {
+          background: var(--primary-background);
+          display: grid;
+          place-items: center;
+          width: var(--product-gallery-lightbox-button-size);
+          inset-block-start: var(--product-gallery-lightbox-button-inset-block);
+          transform: initial;
+        }
+        .previous {
+          inset-inline-start: 0;
+        }
+        .next {
+          inset-inline-end: 0;
+        }
+      }
+      .close {
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline-end: var(--product-gallery-lightbox-padding-inline);
+        path {
+          fill: var(--primary-background);
+          fill-rule: evenodd;
+          clip-rule: evenodd;
+          transition: fill 125ms ease-in;
+        }
+        &:hover, &:focus {
+          path {
+            fill: var(--tertiary-background);
+          }
+        }
+      }
+      &::backdrop {
+        background: var(--septenary-background);
       }
     }
     &:has(button) {
@@ -287,15 +348,6 @@
       .gallery-slides {
         li {
           position: relative;
-        }
-        button {
-          background: initial;
-          display: block;
-          width: initial;
-          aspect-ratio: initial;
-          border-radius: initial;
-          inset: 0;
-          transform: initial;
         }
       }
       &:has(button) {

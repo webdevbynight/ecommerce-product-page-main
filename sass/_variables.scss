@@ -118,6 +118,13 @@
   --product-gallery-thumbnails-gap: #{px2rem(32)};
   --product-gallery-thumbnails-border: #{px2rem(2)};
   --product-gallery-thumbnails-border-radius: #{px2rem(10)};
+  --product-gallery-lightbox-inline-size: min(calc(100vi * 550 / 1440), #{px2rem(550)});
+  --product-gallery-lightbox-padding-block: #{px2rem(44)};
+  --product-gallery-lightbox-padding-inline: #{px2rem(28)};
+  --product-gallery-lightbox-gap: #{px2rem(40)};
+  --product-gallery-lightbox-button-size: #{px2rem(56)};
+  --product-gallery-lightbox-button-inset-block: #{px2rem(281)};
+  --product-gallery-lightbox-thumbnails-size: min(calc(100vi * 88 / 1440), #{px2rem(88)});
 
   @include css-media-queries($from-breakpoint: two-column-product-form) {
     --outer-margin-block-start: #{px2rem(28)};

@@ -1,15 +1,15 @@
 import type { SliderSteps } from "../types.js";
 
-import { moveToSlide } from "./move-to-slide.js";
+import { moveToSlide } from "../utils/move-to-slide.js";
 
 import { SVG_NAMESPACE_URI } from "../constants.js";
 
 /**
- * Creates a slider button element.
+ * Generates a slider button element.
  * @param step - The step to move to ("next" or "previous").
  * @param isLightBox - Whether the slider is in lightbox mode or not.
  */
-export const createSliderButton = (step: SliderSteps, isLightBox = false): HTMLButtonElement => {
+export const generateSliderButton = (step: SliderSteps, isLightBox = false): HTMLButtonElement => {
   const buttonText = step === "next" ? "Next" : "Previous";
   const button = document.createElement("button");
   button.type = "button";
