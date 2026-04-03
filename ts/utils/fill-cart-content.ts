@@ -72,7 +72,7 @@ export const fillCartContent = (): (HTMLUListElement | HTMLParagraphElement)[] =
     nodes.push(p);
   } else {
     const p = document.createElement("p");
-    p.textContent = "Your cart is empty";
+    p.textContent = "Your cart is empty.";
     nodes.push(p);
   }
   return nodes;
