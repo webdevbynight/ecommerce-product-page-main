@@ -164,7 +164,7 @@
         }
         &:hover, &:focus, &[aria-current="true"] {
           &::before {
-            background: var(--octonary-background);
+            background: var(--nonary-background);
           }
         }
         &[aria-current="true"] {
@@ -265,7 +265,7 @@
         }
       }
       &::backdrop {
-        background: var(--septenary-background);
+        background: var(--octonary-background);
       }
     }
     &:has(button) {

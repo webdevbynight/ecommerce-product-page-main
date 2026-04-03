@@ -28,6 +28,8 @@
   --product-form-line-height: calc(26 / 16);
   --cart-title-text-size: #{px2rem(16)};
   --cart-title-line-height: calc(26 / 16);
+  --cart-count-text-size: #{px2rem(10)};
+  --cart-count-line-height: normal;
 
   @include css-media-queries($from-breakpoint: two-column-product-form) {
     --product-title-text-size: #{px2rem(44)};
@@ -65,8 +67,9 @@
   --quinary-background: var(--grey-500);
   --quinary-background-active: var(--grey-950);
   --senary-background: var(--grey-950);
-  --septenary-background: rgb(0 0 0 / 0.75);
-  --octonary-background: rgb(255 255 255 / 0.75);
+  --septenary-background: var(--grey-300);
+  --octonary-background: rgb(0 0 0 / 0.75);
+  --nonary-background: rgb(255 255 255 / 0.75);
 
   // Boxes, margins, paddings, gaps and shadows
   --outer-inline-size: min(calc(100vi * 1110 / 1440), #{px2rem(1110)});
@@ -128,8 +131,10 @@
   --product-gallery-lightbox-button-size: #{px2rem(56)};
   --product-gallery-lightbox-button-inset-block: min(calc(100vi * 281 / 1440), #{px2rem(281)});
   --product-gallery-lightbox-thumbnails-size: min(calc(100vi * 88 / 1440), #{px2rem(88)});
-  --cart-inline-size: #{px2rem(336)};
+  --cart-inline-size: min(calc(100vi * 336 / 375), #{px2rem(336)});
   --cart-block-size: #{px2rem(208)};
+  --cart-inset-block: #{px2rem(57)};
+  --cart-inset-inline: 50%;
   --cart-padding-block: #{px2rem(24)};
   --cart-padding-inline: #{px2rem(12)};
   --cart-border-radius: #{px2rem(10)};
@@ -144,6 +149,11 @@
   --cart-button-padding: #{px2rem(16)};
   --cart-button-margin-inline: #{px2rem(12)};
   --cart-button-border-radius: #{px2rem(10)};
+  --cart-count-inline-size: #{px2rem(7)};
+  --cart-count-padding-inline: #{px2rem(6)};
+  --cart-count-border-radius: #{px2rem(6.5)};
+  --cart-count-inset-block: #{px2rem(-4)};
+  --cart-count-inset-inline: #{px2rem(9)};
 
   @include css-media-queries($from-breakpoint: two-column-product-form) {
     --outer-margin-block-start: #{px2rem(28)};
@@ -159,6 +169,9 @@
     --product-form-input-padding-inline: #{px2rem(24)};
     --product-gallery-inline-size: calc(100vi * 608 / 768);
     --product-gallery-block-size: calc(var(--product-gallery-inline-size) * 290 / 608);
+    --cart-inset-block: #{px2rem(66)};
+    --cart-inset-inline: #{px2rem(-71)};
+    --cart-count-inset-block: #{px2rem(-6)};
   }
   @include css-media-queries($from-breakpoint: two-column-product-form, $below-breakpoint: visible-menu) {
     --product-form-gap: #{px2rem(8)};
@@ -173,6 +186,8 @@
     --product-form-input-padding-inline: #{px2rem(13.5)};
     --product-gallery-inline-size: min(calc(100vi * 448 / 1440), #{px2rem(448)});
     --product-gallery-block-size: calc(var(--product-gallery-inline-size) * 445 / 448);
+    --cart-inset-block: #{px2rem(64)};
+    --cart-inset-inline: #{px2rem(-76)};
   }
 
   // Transitions

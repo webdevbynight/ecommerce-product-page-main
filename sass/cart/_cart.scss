@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+@use "../base/mixins" as *;
+
 /** @section Cart */
 .cart {
   font-size: var(--cart-title-text-size);
@@ -11,6 +13,10 @@
   padding: var(--cart-padding-block) var(--cart-padding-inline);
   border-radius: var(--cart-border-radius);
   box-shadow: var(--cart-shadow);
+  position: absolute;
+  inset-block-start: var(--cart-inset-block);
+  inset-inline-end: var(--cart-inset-inline);
+  z-index: 1;
   h2 {
     color: var(--secondary);
     padding-inline: var(--cart-padding-inline);
@@ -45,6 +51,10 @@
   button {
     flex-shrink: 0;
     border: none;
+    path {
+      fill: var(--septenary-background);
+      fill-rule: nonzero;
+    }
   }
   a {
     color: var(--secondary);
@@ -64,5 +74,11 @@
     color: var(--secondary);
     vertical-align: middle;
     margin-inline-start: var(--cart-amount-margin-inline);
+  }
+  main & {
+    display: none;
+  }
+  @include css-media-queries($below-breakpoint: two-column-product-form) {
+    translate: 50%;
   }
 }

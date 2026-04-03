@@ -61,12 +61,26 @@
       transition: fill 250ms ease-in;
     }
     a {
-      &:hover, &:focus {
+      position: relative;
+      &:hover, &:focus, &.open {
         path {
           fill: var(--quinary-background-active);
         }
       }
     }
+  }
+  .cart-count {
+    font-size: var(--cart-count-text-size);
+    line-height: var(--cart-count-line-height);
+    font-weight: bold;
+    color: var(--tertiary);
+    background: var(--tertiary-background);
+    min-inline-size: var(--cart-count-inline-size);
+    padding-inline: var(--cart-count-padding-inline);
+    border-radius: var(--cart-count-border-radius);
+    position: absolute;
+    inset-block-start: var(--cart-count-inset-block);
+    inset-inline-start: var(--cart-count-inset-inline);
   }
   .profile {
     img {
