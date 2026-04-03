@@ -13,6 +13,9 @@ export const generateCart = (): HTMLElement => {
   const h2 = document.createElement("h2");
   h2.textContent = "Cart";
   cart.appendChild(h2);
-  cart.appendChild(fillCartContent());
+  const nodes = fillCartContent();
+  for (const node of nodes) {
+    cart.appendChild(node);
+  }
   return cart;
 };

@@ -7,7 +7,8 @@ import { SVG_NAMESPACE_URI, THUMBNAIL_SIZE } from "../constants.js";
  * Fills the cart content with product information.
  * @return The cart content as HTML.
  */
-export const fillCartContent = (): HTMLUListElement | HTMLParagraphElement => {
+export const fillCartContent = (): (HTMLUListElement | HTMLParagraphElement)[] => {
+  const nodes: (HTMLUListElement | HTMLParagraphElement)[] = [];
   const products = getProducts();
   if (products.length) {
     const ul = document.createElement("ul");
@@ -62,9 +63,17 @@ export const fillCartContent = (): HTMLUListElement | HTMLParagraphElement => {
       li.appendChild(button);
       ul.appendChild(li);
     }
-    return ul;
+    nodes.push(ul);
+    const p = document.createElement("p");
+    const link = document.createElement("a");
+    link.href = "./";
+    link.textContent = "Checkout";
+    p.appendChild(link);
+    nodes.push(p);
+  } else {
+    const p = document.createElement("p");
+    p.textContent = "Your cart is empty";
+    nodes.push(p);
   }
-  const p = document.createElement("p");
-  p.textContent = "Your cart is empty";
-  return p;
+  return nodes;
 };
