@@ -2,10 +2,12 @@ import { displayTotalProductsInCart } from "./ui/display-total-products-in-cart.
 import { handleCartAccess } from "./ui/handle-cart-access.js";
 import { handleGallery } from "./ui/handle-gallery.js";
 import { handleMenu } from "./ui/handle-menu.js";
+import { handleProductForm } from "./ui/handle-product-form.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   handleMenu(document);
   handleCartAccess(document);
   displayTotalProductsInCart(document);
   handleGallery(document);
+  handleProductForm(document);
 });

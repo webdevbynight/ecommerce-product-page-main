@@ -61,6 +61,7 @@
       transition: fill 250ms ease-in;
     }
     a {
+      display: inline-block;
       position: relative;
       &:hover, &:focus, &.open {
         path {
@@ -75,6 +76,7 @@
     font-weight: bold;
     color: var(--tertiary);
     background: var(--tertiary-background);
+    text-align: center;
     min-inline-size: var(--cart-count-inline-size);
     padding-inline: var(--cart-count-padding-inline);
     border-radius: var(--cart-count-border-radius);

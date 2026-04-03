@@ -1,4 +1,4 @@
-import { fillCartContent } from "../utils/fill-cart-content.js";
+import { fillCartContent } from "./fill-cart-content.js";
 
 /**
  * Generates the cart.

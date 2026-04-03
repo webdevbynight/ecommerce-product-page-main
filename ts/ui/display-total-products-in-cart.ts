@@ -9,11 +9,14 @@ export const displayTotalProductsInCart = (document: Document): void => {
   const totalProducts = getTotalProductsInCart();
   const cartAccessLink = document.querySelector(".cart-access a");
   if (cartAccessLink) {
-    const cartCount = cartAccessLink.querySelector(".cart-count") ?? document.createElement("span");
-    const cartCountClass = "cart-count";
-    if (!cartCount.classList.contains(cartCountClass)) cartCount.classList.add(cartCountClass);
+    let cartCount = cartAccessLink.querySelector(".cart-count");
     if (totalProducts) {
+      if (!cartCount) {
+        cartCount = document.createElement("span");
+        cartCount.className = "cart-count";
+        cartAccessLink.appendChild(cartCount);
+      }
       cartCount.innerHTML = `${totalProducts} <span class="sr-only">${agreeInNumber(totalProducts, ["item", "items"])}</span>`;
-    } else cartCount.remove();
+    } else cartCount?.remove();
   }
 };
