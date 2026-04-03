@@ -13,7 +13,7 @@ export const getBreakpoints = (): Breakpoints => {
     for (const rule of sheet.cssRules) {
       if (rule instanceof CSSStyleRule && rule.selectorText === ":root") {
         for (const property of rule.style) {
-          if (property.startsWith(prefix)) breakpoints.set(property.replace(prefix, ""), convertPxToEm(Number(rule.style.getPropertyValue(property))));
+          if (property.startsWith(prefix)) breakpoints.set(property.replace(prefix, ""), convertPxToEm(Number.parseFloat(rule.style.getPropertyValue(property))));
         }
       }
     }
