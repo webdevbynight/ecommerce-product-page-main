@@ -46,28 +46,18 @@
   }
 
   // Colours
-  --white: white;
-  --black: black;
-  --grey-50: #f6f8fd;
-  --grey-100: #e4e9f2;
-  --grey-300: #c3cad9;
-  --grey-500: #69707d;
-  --grey-950: #1d2026;
-  --orange-300: #ffab6a;
-  --orange-500: #ff7e1b;
-
-  --primary: var(--grey-500);
-  --secondary: var(--grey-950);
+  --primary: #69707d;
+  --secondary: #1d2026;
   --tertiary: white;
   --primary-background: white;
-  --secondary-background: var(--grey-50);
-  --tertiary-background: var(--orange-500);
-  --tertiary-background-active: var(--orange-300);
-  --quaternary-background: var(--grey-100);
-  --quinary-background: var(--grey-500);
-  --quinary-background-active: var(--grey-950);
-  --senary-background: var(--grey-950);
-  --septenary-background: var(--grey-300);
+  --secondary-background: #f6f8fd;
+  --tertiary-background: #ff7e1b;
+  --tertiary-background-active: #ffab6a;
+  --quaternary-background: #e4e9f2;
+  --quinary-background: #69707d;
+  --quinary-background-active: #1d2026;
+  --senary-background: #1d2026;
+  --septenary-background: #c3cad9;
   --octonary-background: rgb(0 0 0 / 0.75);
   --nonary-background: rgb(255 255 255 / 0.75);
 
@@ -196,6 +186,4 @@
   --menu-transition-delay: calc(var(--menu-size-transition) / 2);
   --product-form-transition: 150ms;
   --product-gallery-transition: 500ms;
-
-  // Values reassigned based on media queries
 }
