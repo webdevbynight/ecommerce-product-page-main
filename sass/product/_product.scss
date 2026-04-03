@@ -37,12 +37,12 @@
         }
         &:first-of-type {
           order: -1;
-          padding-inline-start: var(--product-form-input-padding-inline);
+          padding-inline: var(--product-form-input-padding-inline);
           border-top-left-radius: var(--product-form-button-border-radius);
           border-bottom-left-radius: var(--product-form-button-border-radius);
         }
         &:last-of-type {
-          padding-inline-end: var(--product-form-input-padding-inline);
+          padding-inline: var(--product-form-input-padding-inline);
           border-top-right-radius: var(--product-form-button-border-radius);
           border-bottom-right-radius: var(--product-form-button-border-radius);
         }
