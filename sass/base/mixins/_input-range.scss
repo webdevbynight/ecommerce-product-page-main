@@ -27,7 +27,7 @@
 ///   @include css-input-range-track-background(grey, orange);
 /// }
 @mixin css-input-range-track-background($track, $progress: null, $offset: 0%) {
-  @if $progress != null {
+  @if $progress {
     &::-moz-range-track {
       background: $track;
     }
