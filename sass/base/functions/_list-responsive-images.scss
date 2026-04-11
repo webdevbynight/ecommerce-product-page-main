@@ -3,6 +3,8 @@
 @use "sass:meta";
 @use "sass:string";
 
+/* stylelint-disable scss/no-duplicate-dollar-variables */
+
 /// Adds a suffix to the file name
 ///
 /// @access private
